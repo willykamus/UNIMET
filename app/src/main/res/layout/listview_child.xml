@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:gravity="top"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/startTime_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="23:59"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/endTime_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="23:59"
+            android:textAlignment="center"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aula"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/room_TV"
+            android:textColor="#134C79"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:text="XXXXXX"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#CCD0D1"
+        android:padding="8dp">
+
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:gravity="top"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/className_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#134C79"
+            android:textStyle="bold"
+            android:text="Class name"
+            android:textSize="18dp"
+            android:paddingLeft="16dp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <TextView
+            android:id="@+id/classCode_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="class code"
+            android:paddingLeft="16dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
