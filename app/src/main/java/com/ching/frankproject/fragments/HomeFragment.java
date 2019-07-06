@@ -12,10 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ching.frankproject.R;
+import com.ching.frankproject.dao.EventsDao;
+import com.ching.frankproject.dao.EventsFactory;
 import com.ching.frankproject.dao.ScheduleDao;
 import com.ching.frankproject.dao.ScheduleFactory;
+import com.ching.frankproject.model.Event;
+import com.ching.frankproject.model.RecyclerAdapter;
 import com.ching.frankproject.model.ScheduleListItem;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +33,7 @@ public class HomeFragment extends Fragment {
 
     private String username;
     private ScheduleDao scheduleDao;
+    EventsDao dao = EventsFactory.getEventsDao();
 
     @Nullable
     @Override
@@ -36,6 +43,20 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        ArrayList<Event> events = dao.getAllEvents();
+
+        Context context = view.getContext();
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.eventsRecycler);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        RecyclerAdapter adapter = new RecyclerAdapter(context,events);
+
+        recyclerView.setAdapter(adapter);
 
         TextView welcome = view.findViewById(R.id.welcomeTV);
         TextView nextClassTV = view.findViewById(R.id.nextClassTV);
@@ -59,7 +80,6 @@ public class HomeFragment extends Fragment {
             timeToNextClassTV.setText("");
         }
 
-        Context context = view.getContext();
         SharedPreferences preferences = context.getSharedPreferences(getString(R.string.preference_key),Context.MODE_PRIVATE);
         username = preferences.getString("firstName","Not found!");
         welcome.setText("Bienvenido "+username);

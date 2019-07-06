@@ -10,6 +10,8 @@ public class ScheduleDao {
 
     public ScheduleDao(){
 
+
+
         itemArrayList.add("Monday");
         itemArrayList.add(new ScheduleListItem("10:30",
                 "12:00", "EMG 23","Monday",
